@@ -1,0 +1,29 @@
+default: &default
+  sokuhaku_url: http://localhost:3001
+  sokuhaku_token: 'TCCcxMECkJcWIxVAFm19iWpFQpQZW2u8'
+  currency: JPY
+  locale: ja
+  crawler:
+    room:
+      type_service:
+        level: 4
+      name_service:
+        level: 2
+  datetime:
+    date_format: '%Y-%m-%d'
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+  sokuhaku_url: <%= ENV["SOKUHAKU_URL"] %>  
+  sokuhaku_token: <%= ENV["SOKUHAKU_TOKEN"] %>  
+
+production:
+  <<: *default
+  sokuhaku_url: <%= ENV["SOKUHAKU_URL"] %>  
+  sokuhaku_token: <%= ENV["SOKUHAKU_TOKEN"] %>
